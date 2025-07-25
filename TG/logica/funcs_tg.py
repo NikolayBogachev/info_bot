@@ -1,13 +1,6 @@
-from typing import Any, List, Dict
-from aiogram.client.session import aiohttp
-from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, CallbackQuery, FSInputFile
-from aiohttp import ClientResponseError, ClientConnectorError
 from TG.keyboards.InlineKeyboard import *
 from TG.StatesGroup import *
 from TG.logica.utils import *
-from config import config
-from loguru import logger
 
 
 async def command_start_handler(message: Message):

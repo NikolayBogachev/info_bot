@@ -1,11 +1,6 @@
-from datetime import date
-from aiogram import F, Router
+from aiogram import F
 from aiogram.filters import CommandStart, StateFilter
-from aiogram.fsm.context import FSMContext
-from aiogram.types import Message, CallbackQuery, ForceReply
-from loguru import logger
 
-from TG.StatesGroup import MainStates
 from TG.bot import dp
 from TG.logica.funcs_tg import *
 
