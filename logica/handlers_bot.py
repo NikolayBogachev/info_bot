@@ -1,8 +1,8 @@
 from aiogram import F
 from aiogram.filters import CommandStart, StateFilter
 
-from TG.bot import dp
-from TG.logica.funcs_tg import *
+from bot import dp
+from logica.funcs_tg import *
 
 
 # Функция для регистрации обработчиков

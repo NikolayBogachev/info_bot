@@ -70,8 +70,16 @@ async def send_document_handler(
     :param parse_mode: Режим парсинга текста
     """
     try:
+        # Получаем абсолютный путь к корню проекта (info_bot/)
+        project_root = Path(__file__).parent.parent.parent # Предполагаем, что handlers/ внутри info_bot/
+        # Нормализуем путь (заменяем / на \ для Windows)
+        normalized_path = os.path.normpath(file_path)
+
+        full_file_path = project_root / normalized_path
+
+        print(full_file_path)
         # Проверка существования файла
-        if not os.path.exists(file_path):
+        if not os.path.exists(full_file_path):
             await callback.answer("❌ Файл не найден!", show_alert=True)
             return
 
@@ -81,7 +89,7 @@ async def send_document_handler(
 
         # Отправка документа
         await callback.message.answer_document(
-            document=FSInputFile(file_path),
+            document=FSInputFile(full_file_path),
             caption=caption,
             reply_markup=keyboard,
             parse_mode=parse_mode
@@ -121,8 +129,13 @@ async def send_html_template_callback(
         False - если произошла ошибка
     """
     try:
+        # Получаем абсолютный путь к корню проекта (info_bot/)
+        project_root = Path(__file__).parent.parent.parent # Предполагаем, что handlers/ внутри info_bot/
+        normalized_html_path = os.path.normpath(html_path)
+        full_html_path = project_root / normalized_html_path
+
         # 1. Проверка существования файла
-        resolved_path = Path(html_path).absolute()
+        resolved_path = Path(full_html_path).absolute()
         if not resolved_path.exists():
             error_msg = f"Файл не найден: {resolved_path}"
             logger.error(error_msg)
@@ -181,6 +194,7 @@ async def send_html_template_callback(
         logger.exception("Критическая ошибка в send_html_template_callback")
         await callback.answer(f"⚠️ Критическая ошибка: {str(e)}", show_alert=True)
         return False
+
 
 async def handle_error(target: Union[Message, CallbackQuery], text: str):
     """Обработчик ошибок"""

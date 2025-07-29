@@ -1,6 +1,6 @@
-from TG.keyboards.InlineKeyboard import *
-from TG.StatesGroup import *
-from TG.logica.utils import *
+from StatesGroup import *
+from logica.utils import *
+from keyboards.InlineKeyboard import *
 
 
 async def command_start_handler(message: Message):
@@ -31,7 +31,7 @@ async def handle_1c_menu(callback: CallbackQuery, state: FSMContext):
 async def create_order(callback: CallbackQuery, state: FSMContext):
 
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Создание_Заказа_Покупателя_и_выставление_счёта.pdf",
+                                file_path="info_bot/documents/Создание_Заказа_Покупателя_и_выставление_счёта.pdf",
                                 caption="Вот документ для изучения Создание Заказа Покупателя и выставление счёта.",
                                 keyboard=back_keyboard(),
                                 new_state=C1_States.Create_order)
@@ -40,7 +40,7 @@ async def create_order(callback: CallbackQuery, state: FSMContext):
 async def create_invoice(callback: CallbackQuery, state: FSMContext):
 
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Создание отгрузочной накладной.pdf",
+                                file_path="info_bot/documents/Создание отгрузочной накладной.pdf",
                                 caption="Вот документ для изучения Создание отгрузочной накладной",
                                 keyboard=back_keyboard(),
                                 new_state=C1_States.Create_invoice)
@@ -48,7 +48,7 @@ async def create_invoice(callback: CallbackQuery, state: FSMContext):
 
 async def create_contractor(callback: CallbackQuery, state: FSMContext):
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Создание контрагента.pdf",
+                                file_path="/documents/Создание контрагента.pdf",
                                 caption="Вот документ для изучения Создание контрагента",
                                 keyboard=back_keyboard(),
                                 new_state=C1_States.Create_contractor)
@@ -56,7 +56,7 @@ async def create_contractor(callback: CallbackQuery, state: FSMContext):
 
 async def buyer_return(callback: CallbackQuery, state: FSMContext):
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Возврат от покупателя.pdf",
+                                file_path="info_bot/documents/Возврат от покупателя.pdf",
                                 caption="Вот документ для изучения Возврат от покупателя",
                                 keyboard=back_keyboard(),
                                 new_state=C1_States.Return)
@@ -64,7 +64,7 @@ async def buyer_return(callback: CallbackQuery, state: FSMContext):
 
 async def crate_nomenclature(callback: CallbackQuery, state: FSMContext):
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Создание номенклатуры.pdf",
+                                file_path="info_bot/documents/Создание номенклатуры.pdf",
                                 caption="Вот документ для изучения Создание номенклатуры",
                                 keyboard=back_keyboard(),
                                 new_state=C1_States.Create_item)
@@ -76,36 +76,36 @@ async def handle_complaints_menu(callback: CallbackQuery, state: FSMContext):
 
 
 async def klen(callback: CallbackQuery, state: FSMContext):
-    await send_html_template_callback(callback,  state,
-                                      html_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/texts/klen.html",
+    await send_html_template_callback(callback, state,
+                                      html_path="info_bot/documents/texts/klen.html",
                                       keyboard=back_keyboard(),
                                       new_state=ComplaintsStates.Klen)
 
 
 async def restint(callback: CallbackQuery, state: FSMContext):
-    await send_html_template_callback(callback,  state,
-                                      html_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/texts/intras.html",
+    await send_html_template_callback(callback, state,
+                                      html_path="info_bot/documents/texts/intras.html",
                                       keyboard=back_keyboard(),
                                       new_state=ComplaintsStates.Restint)
 
 
 async def masterclass(callback: CallbackQuery, state: FSMContext):
-    await send_html_template_callback(callback,  state,
-                                      html_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/texts/masterclass.html",
+    await send_html_template_callback(callback, state,
+                                      html_path="info_bot/documents/texts/masterclass.html",
                                       keyboard=back_keyboard(),
                                       new_state=ComplaintsStates.Masterclass)
 
 
 async def region_50(callback: CallbackQuery, state: FSMContext):
-    await send_html_template_callback(callback,  state,
-                                      html_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/texts/reg_50.html",
+    await send_html_template_callback(callback, state,
+                                      html_path="info_bot/documents/texts/reg_50.html",
                                       keyboard=back_keyboard(),
                                       new_state=ComplaintsStates.Region_50)
 
 
 async def ru_project(callback: CallbackQuery, state: FSMContext):
-    await send_html_template_callback(callback,  state,
-                                      html_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/texts/ru_project.html",
+    await send_html_template_callback(callback, state,
+                                      html_path="info_bot/documents/texts/ru_project.html",
                                       keyboard=back_keyboard(),
                                       new_state=ComplaintsStates.Ru_project)
 
@@ -117,7 +117,7 @@ async def db_menu(callback: CallbackQuery, state: FSMContext):
 
 async def inventory(callback: CallbackQuery, state: FSMContext):
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Барный инвентарь.pdf",
+                                file_path="info_bot/documents/Барный инвентарь.pdf",
                                 caption="Вот документ для изучения Барный инвентарь",
                                 keyboard=back_keyboard(),
                                 new_state=DataBase.Bar_inventory)
@@ -125,7 +125,7 @@ async def inventory(callback: CallbackQuery, state: FSMContext):
 
 async def topping(callback: CallbackQuery, state: FSMContext):
     await send_document_handler(callback, state,
-                                file_path="C:/Users/bogac/PycharmProjects/info_bot/TG/documents/Сиропы, топинги, пюре.pdf",
+                                file_path="info_bot/documents/Сиропы, топинги, пюре.pdf",
                                 caption="Вот документ для изучения Сиропы, топинги, пюре",
                                 keyboard=back_keyboard(),
                                 new_state=DataBase.Topping)

@@ -1,11 +1,11 @@
 import asyncio
 import sys
 
-from TG.bot import dp, bot
+from bot import dp, bot
 
 from loguru import logger
 
-from TG.logica.handlers_bot import register_handlers
+from logica.handlers_bot import register_handlers
 from config import config
 
 
